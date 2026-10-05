@@ -1,0 +1,51 @@
+/*
+ * shadcn/ui on Vetra UI. Generated with tokens.css on 2026-09-25.
+ *
+ * Replace the :root { … } and .dark { … } color blocks in your globals.css with this file,
+ * imported after vetra-tokens.css. Keep shadcn's own @theme inline block as it is.
+ * One block serves both modes: every Vetra token already flips with the mode.
+ */
+:root,
+.light,
+.dark,
+[data-mode] {
+  /* 10px keeps shadcn's derived radii (0.6×, 0.8×, 1×, 1.4×) on Vetra's scale: 6, 8, 10, 14. */
+  --radius: 0.625rem;
+
+  --background: var(--background-b0);
+  --foreground: var(--text-primary);
+  --card: var(--background-b1);
+  --card-foreground: var(--text-primary);
+  --popover: var(--background-b2);
+  --popover-foreground: var(--text-primary);
+
+  --primary: var(--accent-default);
+  --primary-foreground: var(--on-color);
+  --secondary: var(--fill-secondary);
+  --secondary-foreground: var(--text-primary);
+  --muted: var(--fill-tertiary);
+  --muted-foreground: var(--text-secondary);
+  /* shadcn's accent is the hover wash of menus and ghost buttons, not a brand color. */
+  --accent: var(--fill-tertiary);
+  --accent-foreground: var(--text-primary);
+  --destructive: var(--red-default);
+
+  --border: var(--stroke-secondary);
+  --input: var(--stroke-secondary);
+  --ring: var(--accent-default);
+
+  --chart-1: var(--accent-default);
+  --chart-2: var(--orange-default);
+  --chart-3: var(--pink-default);
+  --chart-4: var(--violet-default);
+  --chart-5: var(--yellow-default);
+
+  --sidebar: var(--background-b1);
+  --sidebar-foreground: var(--text-primary);
+  --sidebar-primary: var(--accent-default);
+  --sidebar-primary-foreground: var(--on-color);
+  --sidebar-accent: var(--fill-tertiary);
+  --sidebar-accent-foreground: var(--text-primary);
+  --sidebar-border: var(--stroke-secondary);
+  --sidebar-ring: var(--accent-default);
+}

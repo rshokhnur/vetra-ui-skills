@@ -1,0 +1,211 @@
+/*
+ * Vetra UI for Tailwind CSS v4. Generated with tokens.css on 2026-09-25.
+ *
+ * In the global stylesheet, in this order:
+ *   @import "tailwindcss";
+ *   @import "./vetra-tokens.css" layer(base);
+ *   @import "./vetra-tailwind.css";
+ *
+ * Utilities follow the Figma names, "/" becoming "-":
+ *   bg-background-b1  text-text-secondary  border-stroke-primary  bg-fill-tertiary
+ *   bg-accent-default  text-on-color  text-red-text  rounded-12  text-sm font-medium
+ *   shadow-md  shadow-actions-primary  focus-visible:shadow-ring-accent  hover:wash-tertiary
+ * Spacing and sizing stay on Tailwind's 4px steps: Vetra's spacing-12 is p-3, sizing-44 is h-11.
+ */
+@theme inline {
+  /* Colors. inline keeps each var(), so the mode and the theme still switch every utility. */
+  --color-accent-default: var(--accent-default);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-active: var(--accent-active);
+  --color-accent-text: var(--accent-text);
+  --color-accent-fill: var(--accent-fill);
+  --color-accent-fill-hover: var(--accent-fill-hover);
+  --color-accent-fill-active: var(--accent-fill-active);
+  --color-accent-stroke: var(--accent-stroke);
+  --color-accent-glow: var(--accent-glow);
+  --color-red-default: var(--red-default);
+  --color-red-hover: var(--red-hover);
+  --color-red-active: var(--red-active);
+  --color-red-text: var(--red-text);
+  --color-red-fill: var(--red-fill);
+  --color-red-fill-hover: var(--red-fill-hover);
+  --color-red-fill-active: var(--red-fill-active);
+  --color-red-stroke: var(--red-stroke);
+  --color-red-glow: var(--red-glow);
+  --color-orange-default: var(--orange-default);
+  --color-orange-hover: var(--orange-hover);
+  --color-orange-active: var(--orange-active);
+  --color-orange-text: var(--orange-text);
+  --color-orange-fill: var(--orange-fill);
+  --color-orange-fill-active: var(--orange-fill-active);
+  --color-orange-stroke: var(--orange-stroke);
+  --color-orange-glow: var(--orange-glow);
+  --color-brown-default: var(--brown-default);
+  --color-brown-hover: var(--brown-hover);
+  --color-brown-active: var(--brown-active);
+  --color-brown-text: var(--brown-text);
+  --color-brown-fill: var(--brown-fill);
+  --color-brown-fill-active: var(--brown-fill-active);
+  --color-brown-stroke: var(--brown-stroke);
+  --color-brown-glow: var(--brown-glow);
+  --color-yellow-default: var(--yellow-default);
+  --color-yellow-hover: var(--yellow-hover);
+  --color-yellow-active: var(--yellow-active);
+  --color-yellow-text: var(--yellow-text);
+  --color-yellow-fill: var(--yellow-fill);
+  --color-yellow-fill-active: var(--yellow-fill-active);
+  --color-yellow-stroke: var(--yellow-stroke);
+  --color-yellow-glow: var(--yellow-glow);
+  --color-lime-default: var(--lime-default);
+  --color-lime-hover: var(--lime-hover);
+  --color-lime-active: var(--lime-active);
+  --color-lime-text: var(--lime-text);
+  --color-lime-fill: var(--lime-fill);
+  --color-lime-fill-active: var(--lime-fill-active);
+  --color-lime-stroke: var(--lime-stroke);
+  --color-lime-glow: var(--lime-glow);
+  --color-green-default: var(--green-default);
+  --color-green-hover: var(--green-hover);
+  --color-green-active: var(--green-active);
+  --color-green-text: var(--green-text);
+  --color-green-fill: var(--green-fill);
+  --color-green-fill-active: var(--green-fill-active);
+  --color-green-stroke: var(--green-stroke);
+  --color-green-glow: var(--green-glow);
+  --color-sky-default: var(--sky-default);
+  --color-sky-hover: var(--sky-hover);
+  --color-sky-active: var(--sky-active);
+  --color-sky-text: var(--sky-text);
+  --color-sky-fill: var(--sky-fill);
+  --color-sky-fill-active: var(--sky-fill-active);
+  --color-sky-stroke: var(--sky-stroke);
+  --color-sky-glow: var(--sky-glow);
+  --color-violet-default: var(--violet-default);
+  --color-violet-hover: var(--violet-hover);
+  --color-violet-active: var(--violet-active);
+  --color-violet-text: var(--violet-text);
+  --color-violet-fill: var(--violet-fill);
+  --color-violet-fill-active: var(--violet-fill-active);
+  --color-violet-stroke: var(--violet-stroke);
+  --color-violet-glow: var(--violet-glow);
+  --color-pink-default: var(--pink-default);
+  --color-pink-hover: var(--pink-hover);
+  --color-pink-active: var(--pink-active);
+  --color-pink-text: var(--pink-text);
+  --color-pink-fill: var(--pink-fill);
+  --color-pink-fill-active: var(--pink-fill-active);
+  --color-pink-stroke: var(--pink-stroke);
+  --color-pink-glow: var(--pink-glow);
+  --color-on-color: var(--on-color);
+  --color-gray-on-fill: var(--gray-on-fill);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-tertiary: var(--text-tertiary);
+  --color-text-quaternary: var(--text-quaternary);
+  --color-gray-primary: var(--gray-primary);
+  --color-gray-secondary: var(--gray-secondary);
+  --color-gray-tertiary: var(--gray-tertiary);
+  --color-gray-quaternary: var(--gray-quaternary);
+  --color-background-b0: var(--background-b0);
+  --color-background-b1: var(--background-b1);
+  --color-background-b2: var(--background-b2);
+  --color-background-b3: var(--background-b3);
+  --color-fill-primary: var(--fill-primary);
+  --color-fill-secondary: var(--fill-secondary);
+  --color-fill-tertiary: var(--fill-tertiary);
+  --color-fill-quaternary: var(--fill-quaternary);
+  --color-stroke-primary: var(--stroke-primary);
+  --color-stroke-secondary: var(--stroke-secondary);
+  --color-overlay-scrim: var(--overlay-scrim);
+  --color-constant-colors-white: var(--constant-colors-white);
+  --color-constant-colors-black: var(--constant-colors-black);
+  --color-glass-fill: var(--glass-fill);
+  --color-glass-fill-subtle: var(--glass-fill-subtle);
+  --color-glass-stroke: var(--glass-stroke);
+  --color-glass-line: var(--glass-line);
+
+  /* Corner radius: rounded-8, rounded-12. Tailwind's rounded-full already covers radius-full. */
+  --radius-0: 0px;
+  --radius-2: 2px;
+  --radius-4: 4px;
+  --radius-6: 6px;
+  --radius-8: 8px;
+  --radius-10: 10px;
+  --radius-12: 12px;
+  --radius-14: 14px;
+  --radius-16: 16px;
+  --radius-20: 20px;
+  --radius-24: 24px;
+  --radius-32: 32px;
+
+  /* Type. text-{step} carries size, line height and tracking together; add font-{weight}. */
+  --font-sans: "Geist", "Geist Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Geist Mono", "Geist Mono Variable", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --text-7xl: 72px;
+  --text-7xl--line-height: 76px;
+  --text-7xl--letter-spacing: -0.01em;
+  --text-6xl: 60px;
+  --text-6xl--line-height: 68px;
+  --text-6xl--letter-spacing: -0.01em;
+  --text-5xl: 48px;
+  --text-5xl--line-height: 56px;
+  --text-5xl--letter-spacing: -0.01em;
+  --text-4xl: 36px;
+  --text-4xl--line-height: 42px;
+  --text-4xl--letter-spacing: -0.01em;
+  --text-3xl: 30px;
+  --text-3xl--line-height: 36px;
+  --text-3xl--letter-spacing: -0.01em;
+  --text-2xl: 24px;
+  --text-2xl--line-height: 32px;
+  --text-2xl--letter-spacing: -0.01em;
+  --text-xl: 20px;
+  --text-xl--line-height: 28px;
+  --text-xl--letter-spacing: -0.01em;
+  --text-lg: 18px;
+  --text-lg--line-height: 28px;
+  --text-lg--letter-spacing: -0.01em;
+  --text-base: 16px;
+  --text-base--line-height: 24px;
+  --text-base--letter-spacing: 0em;
+  --text-sm: 14px;
+  --text-sm--line-height: 20px;
+  --text-sm--letter-spacing: 0em;
+  --text-xs: 12px;
+  --text-xs--line-height: 16px;
+  --text-xs--letter-spacing: 0em;
+  --text-2xs: 10px;
+  --text-2xs--line-height: 12px;
+  --text-2xs--letter-spacing: 0em;
+
+  /* Shadows. shadow-sm … shadow-2xl are Vetra's elevation; bevels and focus rings by name. */
+  --shadow-sm: var(--box-shadow-sm);
+  --shadow-md: var(--box-shadow-md);
+  --shadow-lg: var(--box-shadow-lg);
+  --shadow-xl: var(--box-shadow-xl);
+  --shadow-2xl: var(--box-shadow-2xl);
+  --shadow-ring-accent: var(--ring-accent);
+  --shadow-ring-accent-on-color: var(--ring-accent-on-color);
+  --shadow-ring-accent-text: var(--ring-accent-text);
+  --shadow-ring-gray: var(--ring-gray);
+  --shadow-ring-green: var(--ring-green);
+  --shadow-ring-yellow: var(--ring-yellow);
+  --shadow-ring-orange: var(--ring-orange);
+  --shadow-ring-red: var(--ring-red);
+  --shadow-ring-red-on-color: var(--ring-red-on-color);
+  --shadow-ring-violet: var(--ring-violet);
+  --shadow-ring-sky: var(--ring-sky);
+  --shadow-ring-pink: var(--ring-pink);
+  --shadow-ring-lime: var(--ring-lime);
+  --shadow-ring-brown: var(--ring-brown);
+  --shadow-actions-primary: var(--actions-primary);
+  --shadow-actions-primary-hover: var(--actions-primary-hover);
+  --shadow-actions-secondary: var(--actions-secondary);
+}
+
+/* A wash over the element's own surface: a translucent fill/* layered on its background color,
+   the way an Outline control washes on hover (background/b2 + fill/tertiary). */
+@utility wash-primary { background-image: linear-gradient(var(--fill-primary), var(--fill-primary)); }
+@utility wash-secondary { background-image: linear-gradient(var(--fill-secondary), var(--fill-secondary)); }
+@utility wash-tertiary { background-image: linear-gradient(var(--fill-tertiary), var(--fill-tertiary)); }
+@utility wash-quaternary { background-image: linear-gradient(var(--fill-quaternary), var(--fill-quaternary)); }

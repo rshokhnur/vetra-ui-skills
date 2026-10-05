@@ -1,0 +1,535 @@
+/*
+ * Vetra UI 1.0 tokens
+ *
+ * Generated from the Vetra UI Figma file on 2026-09-28: 109 color variables,
+ * 11 theme steps, 76 number variables, 44 text styles and 22 effect styles.
+ * Do not edit values by hand. A value changed here and not in Figma drifts from the design.
+ *
+ * Naming: a Figma color or effect name with "/" replaced by "-"
+ *   (text/primary -> --text-primary, box-shadow/md -> --box-shadow-md);
+ * a number variable by its last segment (border-radius/radius-12 -> --radius-12);
+ * a text style as a class (text-sm-14px/medium -> .text-sm-14px-medium).
+ *
+ * Switches, set once on <html>:
+ *   data-mode="light" | "dark"               (or class="light" | "dark")
+ *   data-theme="neutral" | "cool" | "warm"   (neutral when absent)
+ * An element that switches either one below <html> must carry both,
+ * or its tokens keep the values resolved on its parent.
+ */
+
+/* Theme ramps. Internal: reference the semantic tokens below, never --neutral-*. */
+:root,
+[data-theme="neutral"] {
+  --neutral-n-0: #ffffff;
+  --neutral-n-25: #fafafa;
+  --neutral-n-50: #f5f5f5;
+  --neutral-n-200: #d4d4d4;
+  --neutral-n-400: #a1a1a1;
+  --neutral-n-500: #737373;
+  --neutral-n-600: #525252;
+  --neutral-n-700: #404040;
+  --neutral-n-800: #262626;
+  --neutral-n-900: #171717;
+  --neutral-n-950: #0a0a0a;
+}
+
+[data-theme="cool"] {
+  --neutral-n-0: #ffffff;
+  --neutral-n-25: #f9fafb;
+  --neutral-n-50: #f3f4f6;
+  --neutral-n-200: #d1d5dc;
+  --neutral-n-400: #99a1af;
+  --neutral-n-500: #6a7282;
+  --neutral-n-600: #4a5565;
+  --neutral-n-700: #364153;
+  --neutral-n-800: #1e2939;
+  --neutral-n-900: #101828;
+  --neutral-n-950: #030712;
+}
+
+[data-theme="warm"] {
+  --neutral-n-0: #ffffff;
+  --neutral-n-25: #fafaf9;
+  --neutral-n-50: #f5f5f4;
+  --neutral-n-200: #d6d3d1;
+  --neutral-n-400: #a6a09b;
+  --neutral-n-500: #79716b;
+  --neutral-n-600: #57534d;
+  --neutral-n-700: #44403b;
+  --neutral-n-800: #292524;
+  --neutral-n-900: #1c1917;
+  --neutral-n-950: #0c0a09;
+}
+
+/* Light mode, the default */
+:root,
+.light,
+[data-mode="light"] {
+  color-scheme: light;
+
+  /* accent */
+  --accent-default: #398ef6;
+  --accent-hover: #1f78de;
+  --accent-active: #0163c3;
+  --accent-text: #0f64c0;
+  --accent-fill: #f1f6fe;
+  --accent-fill-hover: #e2eefd;
+  --accent-fill-active: #d4e5fd;
+  --accent-stroke: #c4dbfb;
+  --accent-glow: color-mix(in srgb, var(--accent-default) 24%, transparent);
+  /* red */
+  --red-default: #f7423d;
+  --red-hover: #dc2829;
+  --red-active: #c00515;
+  --red-text: #bd161c;
+  --red-fill: #fef3f1;
+  --red-fill-hover: #fde7e4;
+  --red-fill-active: #fddad6;
+  --red-stroke: #fbccc6;
+  --red-glow: color-mix(in srgb, var(--red-default) 24%, transparent);
+  /* orange */
+  --orange-default: #de6722;
+  --orange-hover: #bd581e;
+  --orange-active: #a44503;
+  --orange-text: #a3470f;
+  --orange-fill: #fef3ee;
+  --orange-fill-active: #fddbcc;
+  --orange-stroke: #fbceb9;
+  --orange-glow: color-mix(in srgb, var(--orange-default) 24%, transparent);
+  /* brown */
+  --brown-default: #b88059;
+  --brown-hover: #9e6d4c;
+  --brown-active: #875a3a;
+  --brown-text: #865b3c;
+  --brown-fill: #fbf4f0;
+  --brown-fill-active: #f3dfd2;
+  --brown-stroke: #eed3c1;
+  --brown-glow: color-mix(in srgb, var(--brown-default) 24%, transparent);
+  /* yellow */
+  --yellow-default: #b08822;
+  --yellow-hover: #96741f;
+  --yellow-active: #806003;
+  --yellow-text: #80610f;
+  --yellow-fill: #faf5eb;
+  --yellow-fill-active: #f2e2c1;
+  --yellow-stroke: #ecd7aa;
+  --yellow-glow: color-mix(in srgb, var(--yellow-default) 24%, transparent);
+  /* lime */
+  --lime-default: #7c9d23;
+  --lime-hover: #6a861f;
+  --lime-active: #577103;
+  --lime-text: #566f0a;
+  --lime-fill: #f3f8ed;
+  --lime-fill-active: #dde9c7;
+  --lime-stroke: #d0e1b3;
+  --lime-glow: color-mix(in srgb, var(--lime-default) 24%, transparent);
+  /* green */
+  --green-default: #28a950;
+  --green-hover: #249145;
+  --green-active: #047b33;
+  --green-text: #0b7733;
+  --green-fill: #eff9f0;
+  --green-fill-active: #cfedd3;
+  --green-stroke: #bde5c2;
+  --green-glow: color-mix(in srgb, var(--green-default) 24%, transparent);
+  /* sky */
+  --sky-default: #289fb3;
+  --sky-hover: #238899;
+  --sky-active: #047383;
+  --sky-text: #0d7180;
+  --sky-fill: #ebf9fb;
+  --sky-fill-active: #c1edf6;
+  --sky-stroke: #a8e5f1;
+  --sky-glow: color-mix(in srgb, var(--sky-default) 24%, transparent);
+  /* violet */
+  --violet-default: #9671f6;
+  --violet-hover: #8453ec;
+  --violet-active: #703ed0;
+  --violet-text: #6f41cd;
+  --violet-fill: #f6f4fe;
+  --violet-fill-active: #e4dffd;
+  --violet-stroke: #dad3fb;
+  --violet-glow: color-mix(in srgb, var(--violet-default) 24%, transparent);
+  /* pink */
+  --pink-default: #e843a3;
+  --pink-hover: #cf268d;
+  --pink-active: #b40478;
+  --pink-text: #b21478;
+  --pink-fill: #fef2f7;
+  --pink-fill-active: #fdd7e8;
+  --pink-stroke: #fac9e0;
+  --pink-glow: color-mix(in srgb, var(--pink-default) 24%, transparent);
+
+  /* Labels on solid fills */
+  --on-color: var(--constant-colors-white);
+  --gray-on-fill: var(--neutral-n-900);
+
+  /* Text: text only, never an icon */
+  --text-primary: var(--neutral-n-900);
+  --text-secondary: var(--neutral-n-500);
+  --text-tertiary: var(--neutral-n-400);
+  --text-quaternary: var(--neutral-n-200);
+
+  /* Gray: icons and neutral marks, never text */
+  --gray-primary: var(--neutral-n-600);
+  --gray-secondary: var(--neutral-n-500);
+  --gray-tertiary: var(--neutral-n-400);
+  --gray-quaternary: var(--neutral-n-200);
+
+  /* Surfaces: b0 page, b1 card, b2 floating, b3 floating over floating */
+  --background-b0: var(--neutral-n-25);
+  --background-b1: var(--neutral-n-0);
+  --background-b2: var(--neutral-n-0);
+  --background-b3: var(--neutral-n-0);
+
+  /* Washes: the theme neutral at an alpha step */
+  --fill-primary: color-mix(in srgb, var(--neutral-n-900) 16%, transparent);
+  --fill-secondary: color-mix(in srgb, var(--neutral-n-900) 8%, transparent);
+  --fill-tertiary: color-mix(in srgb, var(--neutral-n-900) 4%, transparent);
+  --fill-quaternary: color-mix(in srgb, var(--neutral-n-900) 2%, transparent);
+
+  /* Borders */
+  --stroke-primary: color-mix(in srgb, var(--neutral-n-900) 12%, transparent);
+  --stroke-secondary: color-mix(in srgb, var(--neutral-n-900) 6%, transparent);
+
+  /* Modal backdrop */
+  --overlay-scrim: color-mix(in srgb, var(--constant-colors-black) 50%, transparent);
+
+  /* Glass: white at an alpha, on a colored or brand surface */
+  --glass-fill: color-mix(in srgb, var(--constant-colors-white) 16%, transparent);
+  --glass-fill-subtle: color-mix(in srgb, var(--constant-colors-white) 8%, transparent);
+  --glass-stroke: color-mix(in srgb, var(--constant-colors-white) 40%, transparent);
+  --glass-line: color-mix(in srgb, var(--constant-colors-white) 24%, transparent);
+
+  /* Focus rings: box-shadow values. Put a ring first when an element carries other shadows. */
+  --ring-accent: inset 0 0 0 2px var(--accent-default), 0 0 0 4px var(--accent-fill-active);
+  --ring-accent-on-color: inset 0 0 0 2px var(--on-color), 0 0 0 4px var(--accent-fill-active);
+  --ring-accent-text: 0 0 0 2px var(--accent-default), 0 0 0 4px var(--accent-fill-active);
+  --ring-gray: inset 0 0 0 2px var(--gray-primary), 0 0 0 4px var(--fill-secondary);
+  --ring-green: inset 0 0 0 2px var(--green-default), 0 0 0 4px var(--green-fill-active);
+  --ring-yellow: inset 0 0 0 2px var(--yellow-default), 0 0 0 4px var(--yellow-fill-active);
+  --ring-orange: inset 0 0 0 2px var(--orange-default), 0 0 0 4px var(--orange-fill-active);
+  --ring-red: inset 0 0 0 2px var(--red-default), 0 0 0 4px var(--red-fill-active);
+  --ring-red-on-color: inset 0 0 0 2px var(--on-color), 0 0 0 4px var(--red-fill-active);
+  --ring-violet: inset 0 0 0 2px var(--violet-default), 0 0 0 4px var(--violet-fill-active);
+  --ring-sky: inset 0 0 0 2px var(--sky-default), 0 0 0 4px var(--sky-fill-active);
+  --ring-pink: inset 0 0 0 2px var(--pink-default), 0 0 0 4px var(--pink-fill-active);
+  --ring-lime: inset 0 0 0 2px var(--lime-default), 0 0 0 4px var(--lime-fill-active);
+  --ring-brown: inset 0 0 0 2px var(--brown-default), 0 0 0 4px var(--brown-fill-active);
+}
+
+/* Dark mode: a remap, not a repaint. Solid family fills keep one value in both modes. */
+.dark,
+[data-mode="dark"] {
+  color-scheme: dark;
+
+  /* accent */
+  --accent-default: #398ef6;
+  --accent-hover: #1f78de;
+  --accent-active: #0163c3;
+  --accent-text: #4696f9;
+  --accent-fill: #111d2d;
+  --accent-fill-hover: #14263d;
+  --accent-fill-active: #172f4d;
+  --accent-stroke: #1d334f;
+  --accent-glow: color-mix(in srgb, var(--accent-default) 24%, transparent);
+  /* red */
+  --red-default: #f7423d;
+  --red-hover: #dc2829;
+  --red-active: #c00515;
+  --red-text: #ff5a51;
+  --red-fill: #2e1411;
+  --red-fill-hover: #3e1815;
+  --red-fill-active: #4e1c18;
+  --red-stroke: #50221e;
+  --red-glow: color-mix(in srgb, var(--red-default) 24%, transparent);
+  /* orange */
+  --orange-default: #de6722;
+  --orange-hover: #bd581e;
+  --orange-active: #a44503;
+  --orange-text: #ee6e22;
+  --orange-fill: #281810;
+  --orange-fill-active: #442517;
+  --orange-stroke: #472a1c;
+  --orange-glow: color-mix(in srgb, var(--orange-default) 24%, transparent);
+  /* brown */
+  --brown-default: #b88059;
+  --brown-hover: #9e6d4c;
+  --brown-active: #875a3a;
+  --brown-text: #c4875d;
+  --brown-fill: #221b15;
+  --brown-fill-active: #392b21;
+  --brown-stroke: #3d2f26;
+  --brown-glow: color-mix(in srgb, var(--brown-default) 24%, transparent);
+  /* yellow */
+  --yellow-default: #b08822;
+  --yellow-hover: #96741f;
+  --yellow-active: #806003;
+  --yellow-text: #ba8f1f;
+  --yellow-fill: #211c11;
+  --yellow-fill-active: #372d17;
+  --yellow-stroke: #3a311d;
+  --yellow-glow: color-mix(in srgb, var(--yellow-default) 24%, transparent);
+  /* lime */
+  --lime-default: #7c9d23;
+  --lime-hover: #6a861f;
+  --lime-active: #577103;
+  --lime-text: #82a51e;
+  --lime-fill: #1a1f11;
+  --lime-fill-active: #293217;
+  --lime-stroke: #2e361d;
+  --lime-glow: color-mix(in srgb, var(--lime-default) 24%, transparent);
+  /* green */
+  --green-default: #28a950;
+  --green-hover: #249145;
+  --green-active: #047b33;
+  --green-text: #23b252;
+  --green-fill: #122015;
+  --green-fill-active: #1a361f;
+  --green-stroke: #203924;
+  --green-glow: color-mix(in srgb, var(--green-default) 24%, transparent);
+  /* sky */
+  --sky-default: #289fb3;
+  --sky-hover: #238899;
+  --sky-active: #047383;
+  --sky-text: #22a7bc;
+  --sky-fill: #121f21;
+  --sky-fill-active: #1a3338;
+  --sky-stroke: #1f363b;
+  --sky-glow: color-mix(in srgb, var(--sky-default) 24%, transparent);
+  /* violet */
+  --violet-default: #9671f6;
+  --violet-hover: #8453ec;
+  --violet-active: #703ed0;
+  --violet-text: #a07ffd;
+  --violet-fill: #1d182f;
+  --violet-fill-active: #312551;
+  --violet-stroke: #342a53;
+  --violet-glow: color-mix(in srgb, var(--violet-default) 24%, transparent);
+  /* pink */
+  --pink-default: #e843a3;
+  --pink-hover: #cf268d;
+  --pink-active: #b40478;
+  --pink-text: #f358af;
+  --pink-fill: #2c1320;
+  --pink-fill-active: #4a1b34;
+  --pink-stroke: #4c2138;
+  --pink-glow: color-mix(in srgb, var(--pink-default) 24%, transparent);
+
+  /* Labels on solid fills */
+  --on-color: var(--constant-colors-white);
+  --gray-on-fill: var(--neutral-n-0);
+
+  /* Text: text only, never an icon */
+  --text-primary: var(--neutral-n-50);
+  --text-secondary: var(--neutral-n-400);
+  --text-tertiary: var(--neutral-n-500);
+  --text-quaternary: var(--neutral-n-600);
+
+  /* Gray: icons and neutral marks, never text */
+  --gray-primary: var(--neutral-n-400);
+  --gray-secondary: var(--neutral-n-500);
+  --gray-tertiary: var(--neutral-n-600);
+  --gray-quaternary: var(--neutral-n-700);
+
+  /* Surfaces: b0 page, b1 card, b2 floating, b3 floating over floating */
+  --background-b0: var(--neutral-n-950);
+  --background-b1: var(--neutral-n-900);
+  --background-b2: var(--neutral-n-800);
+  --background-b3: var(--neutral-n-700);
+
+  /* Washes: the theme neutral at an alpha step */
+  --fill-primary: color-mix(in srgb, var(--neutral-n-0) 16%, transparent);
+  --fill-secondary: color-mix(in srgb, var(--neutral-n-0) 8%, transparent);
+  --fill-tertiary: color-mix(in srgb, var(--neutral-n-0) 6%, transparent);
+  --fill-quaternary: color-mix(in srgb, var(--neutral-n-0) 2%, transparent);
+
+  /* Borders */
+  --stroke-primary: color-mix(in srgb, var(--neutral-n-0) 14%, transparent);
+  --stroke-secondary: color-mix(in srgb, var(--neutral-n-0) 7%, transparent);
+
+  /* Modal backdrop */
+  --overlay-scrim: color-mix(in srgb, var(--neutral-n-950) 70%, transparent);
+
+  /* Glass: white at an alpha, on a colored or brand surface */
+  --glass-fill: color-mix(in srgb, var(--constant-colors-white) 16%, transparent);
+  --glass-fill-subtle: color-mix(in srgb, var(--constant-colors-white) 8%, transparent);
+  --glass-stroke: color-mix(in srgb, var(--constant-colors-white) 40%, transparent);
+  --glass-line: color-mix(in srgb, var(--constant-colors-white) 24%, transparent);
+
+  /* Focus rings: box-shadow values. Put a ring first when an element carries other shadows. */
+  --ring-accent: inset 0 0 0 2px var(--accent-default), 0 0 0 4px var(--accent-fill-active);
+  --ring-accent-on-color: inset 0 0 0 2px var(--on-color), 0 0 0 4px var(--accent-fill-active);
+  --ring-accent-text: 0 0 0 2px var(--accent-default), 0 0 0 4px var(--accent-fill-active);
+  --ring-gray: inset 0 0 0 2px var(--gray-primary), 0 0 0 4px var(--fill-secondary);
+  --ring-green: inset 0 0 0 2px var(--green-default), 0 0 0 4px var(--green-fill-active);
+  --ring-yellow: inset 0 0 0 2px var(--yellow-default), 0 0 0 4px var(--yellow-fill-active);
+  --ring-orange: inset 0 0 0 2px var(--orange-default), 0 0 0 4px var(--orange-fill-active);
+  --ring-red: inset 0 0 0 2px var(--red-default), 0 0 0 4px var(--red-fill-active);
+  --ring-red-on-color: inset 0 0 0 2px var(--on-color), 0 0 0 4px var(--red-fill-active);
+  --ring-violet: inset 0 0 0 2px var(--violet-default), 0 0 0 4px var(--violet-fill-active);
+  --ring-sky: inset 0 0 0 2px var(--sky-default), 0 0 0 4px var(--sky-fill-active);
+  --ring-pink: inset 0 0 0 2px var(--pink-default), 0 0 0 4px var(--pink-fill-active);
+  --ring-lime: inset 0 0 0 2px var(--lime-default), 0 0 0 4px var(--lime-fill-active);
+  --ring-brown: inset 0 0 0 2px var(--brown-default), 0 0 0 4px var(--brown-fill-active);
+}
+
+/* Mode-independent */
+:root {
+  --constant-colors-white: #ffffff;
+  --constant-colors-black: #18181b;
+
+  /* Spacing: gap and padding. The number is pixels. */
+  --spacing-0: 0;
+  --spacing-1: 1px;
+  --spacing-2: 2px;
+  --spacing-4: 4px;
+  --spacing-6: 6px;
+  --spacing-8: 8px;
+  --spacing-10: 10px;
+  --spacing-12: 12px;
+  --spacing-16: 16px;
+  --spacing-20: 20px;
+  --spacing-24: 24px;
+  --spacing-32: 32px;
+  --spacing-40: 40px;
+  --spacing-48: 48px;
+  --spacing-64: 64px;
+  --spacing-72: 72px;
+  --spacing-96: 96px;
+  --spacing-128: 128px;
+
+  /* Corner radius */
+  --radius-0: 0;
+  --radius-2: 2px;
+  --radius-4: 4px;
+  --radius-6: 6px;
+  --radius-8: 8px;
+  --radius-10: 10px;
+  --radius-12: 12px;
+  --radius-14: 14px;
+  --radius-16: 16px;
+  --radius-20: 20px;
+  --radius-24: 24px;
+  --radius-32: 32px;
+  --radius-full: 9999px;
+
+  /* Stroke width. Every kit border is --stroke-1. */
+  --stroke-0: 0;
+  --stroke-05: 0.5px;
+  --stroke-1: 1px;
+  --stroke-2: 2px;
+  --stroke-4: 4px;
+
+  /* Opacity. Figma stores these as percent; CSS takes a fraction. */
+  --opacity-2: 0.02;
+  --opacity-4: 0.04;
+  --opacity-6: 0.06;
+  --opacity-7: 0.07;
+  --opacity-8: 0.08;
+  --opacity-12: 0.12;
+  --opacity-14: 0.14;
+  --opacity-16: 0.16;
+  --opacity-24: 0.24;
+  --opacity-30: 0.3;
+  --opacity-40: 0.4;
+  --opacity-50: 0.5;
+  --opacity-70: 0.7;
+
+  /* Sizing: width and height */
+  --sizing-6: 6px;
+  --sizing-8: 8px;
+  --sizing-10: 10px;
+  --sizing-12: 12px;
+  --sizing-16: 16px;
+  --sizing-20: 20px;
+  --sizing-24: 24px;
+  --sizing-28: 28px;
+  --sizing-32: 32px;
+  --sizing-36: 36px;
+  --sizing-40: 40px;
+  --sizing-44: 44px;
+  --sizing-48: 48px;
+  --sizing-52: 52px;
+  --sizing-56: 56px;
+  --sizing-64: 64px;
+  --sizing-72: 72px;
+  --sizing-96: 96px;
+  --sizing-128: 128px;
+  --sizing-200: 200px;
+  --sizing-256: 256px;
+  --sizing-320: 320px;
+  --sizing-400: 400px;
+  --sizing-480: 480px;
+  --sizing-512: 512px;
+  --sizing-640: 640px;
+  --sizing-800: 800px;
+
+  /* Type */
+  /* Google Fonts and @fontsource register "Geist"; @fontsource-variable registers "Geist Variable".
+     With next/font, point these at var(--font-geist-sans) and var(--font-geist-mono) instead. */
+  --font-sans: "Geist", "Geist Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Geist Mono", "Geist Mono Variable", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+
+  /* Elevation. Fixed #18181b in both modes on purpose: never make a shadow mode-aware. */
+  --box-shadow-sm: 0 1px 1px rgb(24 24 27 / 5%), 0 2px 2px rgb(24 24 27 / 4%), 0 4px 3px rgb(24 24 27 / 3%);
+  --box-shadow-md: 0 1px 2px rgb(24 24 27 / 5%), 0 4px 4px rgb(24 24 27 / 4%), 0 9px 5px rgb(24 24 27 / 3%);
+  --box-shadow-lg: 0 3px 6px rgb(24 24 27 / 6%), 0 12px 12px rgb(24 24 27 / 5%), 0 27px 15px rgb(24 24 27 / 3%);
+  --box-shadow-xl: 0 7px 14px rgb(24 24 27 / 8%), 0 28px 28px rgb(24 24 27 / 7%), 0 63px 35px rgb(24 24 27 / 4%);
+  --box-shadow-2xl: 0 17px 34px rgb(24 24 27 / 10%), 0 68px 68px rgb(24 24 27 / 9%), 0 153px 85px rgb(24 24 27 / 5%);
+
+  /* Bevels: actions-primary on a solid fill at rest, actions-primary-hover on its hover,
+     actions-secondary on a neutral control at rest. Pressed and disabled are flat. */
+  --actions-primary: inset 0 1px 0 rgb(255 255 255 / 14%), inset 0 5px 10px rgb(255 255 255 / 5%);
+  --actions-primary-hover: inset 0 1px 0 rgb(255 255 255 / 22%), inset 0 5px 10px rgb(255 255 255 / 7%);
+  --actions-secondary: inset 0 1px 0 rgb(255 255 255 / 10%), inset 0 -4px 8px rgb(24 24 27 / 4%), inset 0 8px 16px rgb(255 255 255 / 4%);
+}
+
+/* Text styles: one class per Figma style. Size, line height, tracking and weight travel together. */
+.text-7xl-72px-semibold { font: 600 72px/76px var(--font-sans); letter-spacing: -0.01em; }
+.text-7xl-72px-medium { font: 500 72px/76px var(--font-sans); letter-spacing: -0.01em; }
+.text-7xl-72px-regular { font: 400 72px/76px var(--font-sans); letter-spacing: -0.01em; }
+.text-6xl-60px-semibold { font: 600 60px/68px var(--font-sans); letter-spacing: -0.01em; }
+.text-6xl-60px-medium { font: 500 60px/68px var(--font-sans); letter-spacing: -0.01em; }
+.text-6xl-60px-regular { font: 400 60px/68px var(--font-sans); letter-spacing: -0.01em; }
+.text-5xl-48px-semibold { font: 600 48px/56px var(--font-sans); letter-spacing: -0.01em; }
+.text-5xl-48px-medium { font: 500 48px/56px var(--font-sans); letter-spacing: -0.01em; }
+.text-5xl-48px-regular { font: 400 48px/56px var(--font-sans); letter-spacing: -0.01em; }
+.text-4xl-36px-semibold { font: 600 36px/42px var(--font-sans); letter-spacing: -0.01em; }
+.text-4xl-36px-medium { font: 500 36px/42px var(--font-sans); letter-spacing: -0.01em; }
+.text-4xl-36px-regular { font: 400 36px/42px var(--font-sans); letter-spacing: -0.01em; }
+.text-3xl-30px-semibold { font: 600 30px/36px var(--font-sans); letter-spacing: -0.01em; }
+.text-3xl-30px-medium { font: 500 30px/36px var(--font-sans); letter-spacing: -0.01em; }
+.text-3xl-30px-regular { font: 400 30px/36px var(--font-sans); letter-spacing: -0.01em; }
+.text-2xl-24px-semibold { font: 600 24px/32px var(--font-sans); letter-spacing: -0.01em; }
+.text-2xl-24px-medium { font: 500 24px/32px var(--font-sans); letter-spacing: -0.01em; }
+.text-2xl-24px-regular { font: 400 24px/32px var(--font-sans); letter-spacing: -0.01em; }
+.text-xl-20px-semibold { font: 600 20px/28px var(--font-sans); letter-spacing: -0.01em; }
+.text-xl-20px-medium { font: 500 20px/28px var(--font-sans); letter-spacing: -0.01em; }
+.text-xl-20px-regular { font: 400 20px/28px var(--font-sans); letter-spacing: -0.01em; }
+.text-lg-18px-semibold { font: 600 18px/28px var(--font-sans); letter-spacing: -0.01em; }
+.text-lg-18px-medium { font: 500 18px/28px var(--font-sans); letter-spacing: -0.01em; }
+.text-lg-18px-regular { font: 400 18px/28px var(--font-sans); letter-spacing: -0.01em; }
+.text-base-16px-semibold { font: 600 16px/24px var(--font-sans); letter-spacing: 0; }
+.text-base-16px-medium { font: 500 16px/24px var(--font-sans); letter-spacing: 0; }
+.text-base-16px-regular { font: 400 16px/24px var(--font-sans); letter-spacing: 0; }
+.text-sm-14px-semibold { font: 600 14px/20px var(--font-sans); letter-spacing: 0; }
+.text-sm-14px-medium { font: 500 14px/20px var(--font-sans); letter-spacing: 0; }
+.text-sm-14px-regular { font: 400 14px/20px var(--font-sans); letter-spacing: 0; }
+.text-xs-12px-semibold { font: 600 12px/16px var(--font-sans); letter-spacing: 0; }
+.text-xs-12px-medium { font: 500 12px/16px var(--font-sans); letter-spacing: 0; }
+.text-xs-12px-regular { font: 400 12px/16px var(--font-sans); letter-spacing: 0; }
+.text-2xs-10px-semibold { font: 600 10px/12px var(--font-sans); letter-spacing: 0; }
+.text-2xs-10px-medium { font: 500 10px/12px var(--font-sans); letter-spacing: 0; }
+.text-2xs-10px-regular { font: 400 10px/12px var(--font-sans); letter-spacing: 0; }
+.mono-2xl-24px-regular { font: 400 24px/32px var(--font-mono); letter-spacing: 0; }
+.mono-2xl-24px-medium { font: 500 24px/32px var(--font-mono); letter-spacing: 0; }
+.mono-base-16px-regular { font: 400 16px/24px var(--font-mono); letter-spacing: 0; }
+.mono-base-16px-medium { font: 500 16px/24px var(--font-mono); letter-spacing: 0; }
+.mono-sm-14px-regular { font: 400 14px/20px var(--font-mono); letter-spacing: 0; }
+.mono-sm-14px-medium { font: 500 14px/20px var(--font-mono); letter-spacing: 0; }
+.mono-xs-12px-regular { font: 400 12px/16px var(--font-mono); letter-spacing: 0; }
+.mono-xs-12px-medium { font: 500 12px/16px var(--font-mono); letter-spacing: 0; }
