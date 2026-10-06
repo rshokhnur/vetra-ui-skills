@@ -66,7 +66,8 @@ the Vetra skills" whenever you want a second pass.
 
 ## Updating
 
-When a new version of Vetra UI ships, or these skills get a fix, run `npx skills update`. The skills
+When a new version of Vetra UI ships, or these skills get a fix, run `npx skills update`. If a release
+adds a new skill, run `npx skills add rshokhnur/vetra-ui-skills` again to get it. The skills
 name tokens and components, never node IDs, so they work in any file built on the kit.
 A git worktree keeps the copy that was committed when it was made: commit the new folders before you
 cut one, or update each worktree's copy too.
