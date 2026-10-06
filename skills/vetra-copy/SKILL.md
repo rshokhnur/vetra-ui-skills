@@ -1,6 +1,6 @@
 ---
 name: vetra-copy
-description: Writes the words inside a Vetra UI interface: button and link labels, dialog titles and their action pairs, field labels, placeholders and hints, error messages, empty states, alerts, badges, tooltips, menu items, numbers, dates and sample data, the way the kit's own screens write them. Use whenever you put text into a screen built with Vetra UI, in Figma or in code, including filling a mock with sample content, and when reviewing a screen's copy. Pair with vetra-components for which component carries the text and vetra-ai-ui for assistant and agent copy.
+description: Writes the words inside a Vetra UI interface, including button and link labels, dialog titles and their action pairs, field labels, placeholders and hints, error messages, empty states, alerts, badges, tooltips, menu items, numbers, dates and sample data, the way the kit's own screens write them. Use whenever you put text into a screen built with Vetra UI, in Figma or in code, including filling a mock with sample content, and when reviewing a screen's copy. Pair with vetra-components for which component carries the text and vetra-ai-ui for assistant and agent copy.
 ---
 
 # Vetra UI copy
