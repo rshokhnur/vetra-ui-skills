@@ -1,6 +1,6 @@
 ---
 name: vetra-tokens
-description: Picks the right Vetra UI token for every color, surface, border, wash, text style, spacing, radius, shadow and focus ring, in Figma or in code. Use whenever you style anything with the Vetra UI kit, including building or editing a screen or component, turning a Vetra Figma frame into code, wiring light and dark mode or the Neutral, Cool and Warm themes, checking a design for raw values, and every use_figma write to a file built on Vetra UI, even when a brief only names the kit. Ships every token as CSS custom properties.
+description: Picks the Vetra UI token for every color, surface, border, text style, spacing, radius, shadow and focus ring, in Figma or in code, and ships them as CSS custom properties. Use whenever you style anything built on Vetra UI, wire light and dark mode or the Neutral, Cool and Warm themes, rebrand the accent, or check a design for raw values, including every use_figma write to a Vetra file.
 ---
 
 # Vetra UI tokens
@@ -26,16 +26,9 @@ Every color, gap, radius, text style and shadow in a Vetra UI screen comes from 
    `.text-sm-14px-medium`). Every variable carries these names as its code syntax, so Figma's code
    export prints them. Copy `assets/tokens.css` into the project and import it once, before any
    other stylesheet; with Tailwind or shadcn/ui, follow vetra-code's import order instead.
-4. **Never keep the fallback Figma prints.** Design context emits `var(--stroke-primary,#171717)`;
-   write `var(--stroke-primary)`. `fill/*`, `stroke/*` and `overlay/scrim` are translucent, and the
-   printed fallback is their opaque base color: keep it and a 12% border renders solid near-black.
-5. **In Figma, bind the variable or apply the style.** A raw value that equals a token today breaks
-   on the next mode or theme switch.
-6. **The file wins for names and values.** Everything here describes Vetra UI 1.0 as shipped. When
-   the team's file differs, take the value from the file, never from the tables in `references/`;
-   when a name here is missing from the file, use the file's token for the same role and say so, or
-   stop and report it. Never invent a name. Why: a team that rebranded has other hex values under
-   the same names, and a name the file lacks renders nothing, silently.
+4. **The file wins for names and values** (`vetra-ui`, When the file differs from the skills). Take a
+   value from the team's file, never from the tables in `references/`: a rebranded team has other
+   values under the same names.
 
 ## Color
 
@@ -234,13 +227,15 @@ everything else: body, description, value, hint, meta ── Regular
 ## Scales
 
 ```
-spacing (padding, gap) ── 0 1 2 4 6 8 10 12 16 20 24 32 40 48 64 72 96 128   no 14 or 18
+spacing (padding, gap) ── 0 1 2 4 6 8 10 12 16 20 24 32 40 48 64 72 96 128
 radius ────────────────── 0 2 4 6 8 10 12 14 16 20 24 32 full
 control height ────────── Tiny 28, Small 36, Medium 44, Large 52
 control radius ────────── 8, 10, 12, 14 (height ÷ 4 + 1)
 container radius ──────── 12 at any size: card, popover, menu, dialog, sheet
 ```
 
+- Above 12 the steps grow by 4: no 14 or 18. Why: two gaps 2px apart read as a mistake, not a
+  choice, so the scale keeps every step visibly different.
 - A value between two steps snaps to the nearer one; a tie goes up.
 - A box nested in another takes the parent's radius minus the inset: a `radius-12` card with 4px
   padding holds `radius-8` children.
@@ -257,7 +252,6 @@ Search what you wrote and fix every hit:
 - an `opacity` on a paint or a layer to fade a color → a token with its own alpha
 - a `font-size` or `line-height` set on its own → the style class
 - `opacity` on a disabled state → the disabled tokens
-- a Figma fallback left inside `var()` → drop it
 
 ## References
 

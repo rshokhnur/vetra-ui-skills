@@ -136,8 +136,8 @@ module.exports = {
         "32": "32px",
       },
       fontFamily: {
-        sans: ["Geist", "Geist Variable", "ui-sans-serif", "system-ui", "sans-serif"],
-        mono: ["Geist Mono", "Geist Mono Variable", "ui-monospace", "SFMono-Regular", "Menlo", "monospace"],
+        sans: ["var(--font-sans)"],
+        mono: ["var(--font-mono)"],
       },
       fontSize: {
         "7xl": ["72px", { lineHeight: "76px", letterSpacing: "-0.01em" }],

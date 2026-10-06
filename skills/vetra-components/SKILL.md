@@ -1,6 +1,6 @@
 ---
 name: vetra-components
-description: Chooses the right Vetra UI component and its properties (style, tone, size, color, state) for any interface need, and composes components into menus, popovers, dialogs, forms, tables, toolbars and cards the way the kit's own screens do. Use when building, editing or reviewing a screen or flow with the Vetra UI kit, in Figma or in code, whenever you decide which control to use, how emphatic it is, how big it is, or how pieces fit together, including every use_figma write to a file built on Vetra UI, even when a brief only names the kit. Use vetra-tokens alongside it for every color, spacing and type value.
+description: Chooses the Vetra UI component and its style, tone, size, color and state for each interface need, and composes menus, popovers, dialogs, forms, tables and cards the way the kit's screens do. Use whenever you build, edit or review a screen with Vetra UI, in Figma or in code, and decide which control to use, how emphatic or big it is, or how the pieces fit together.
 ---
 
 # Vetra UI components
@@ -28,18 +28,15 @@ Every component's property, default and nested part is in
    Destructive. Primary + Destructive is only the confirm button of a destructive Alert Dialog.
    Declining ("Deny refund", "Don't deploy") destroys nothing, so it is Outline with Tone Default.
 4. **Controls in one row share one size.** A field and the button beside it are the same height.
-5. **No placeholder ships.** The square glyph in an icon slot and the copy "Label", "Button",
-   "Input text", "Hint text" are placeholders. Replace them or turn the slot off.
-6. **The file decides which components exist.** This skill describes Vetra UI 1.0. When a component
-   or property named here is missing from the team's file, use the file's closest component and say
-   so, or stop and report it; never redraw it from shapes. When the file has a component or property
-   this skill doesn't list, read its description and use it; the team's own components come first
-   wherever the kit has none. When a team component and a kit component do the same job (a team "New
-   dot" and Counter `Style` Dot), use the one the project's `## Changes to Vetra UI` names; with no
-   line there, keep the team's on screens that already use it and ask which to use for new work. Why: the tree is a snapshot, and the file is what the build links to.
-
-A person's request wins: build what they asked. Suggest the kit's way once, in one sentence in total,
-and never refuse.
+   Why: a 36 button beside a 44 field misaligns their edges and text, and the row reads as a mistake.
+5. **No placeholder ships.** The square glyph in an icon slot and a component's sample copy are
+   placeholders: replace them or turn the slot off (the strings are listed in `vetra-copy`, rule 5).
+   Why: a placeholder looks like content, so it passes review and ships.
+6. **The file decides which components exist** (`vetra-ui`, When the file differs from the skills).
+   One case that tree doesn't settle: a team component and a kit component that do the same job (a
+   team "New dot" and Counter `Style` Dot). Use the one the project's `## Changes to Vetra UI` names;
+   with no line there, keep the team's on screens that already use it and ask which to use for new
+   work. Why: swapping a team's component unasked changes their design.
 
 ## Pick the component
 

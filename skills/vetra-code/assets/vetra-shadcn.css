@@ -2,7 +2,8 @@
  * shadcn/ui on Vetra UI. Generated with tokens.css on 2026-09-25.
  *
  * Replace the :root { … } and .dark { … } color blocks in your globals.css with this file,
- * imported after vetra-tokens.css. Keep shadcn's own @theme inline block as it is.
+ * imported after vetra-tokens.css. Keep shadcn's own @theme inline block, minus its --font-* lines:
+ * the fonts come from vetra-tokens.css.
  * One block serves both modes: every Vetra token already flips with the mode.
  */
 :root,

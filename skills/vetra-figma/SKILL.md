@@ -1,6 +1,6 @@
 ---
 name: vetra-figma
-description: Builds and edits screens in Figma with the Vetra UI kit through the Figma MCP tools (use_figma, search_design_system, get_screenshot). Covers finding the kit's components, placing and configuring instances, binding every color, number, text style and effect to the kit's variables and styles, setting light or dark mode and the theme, swapping icons, and auditing the result. Load it before any use_figma call on a file that uses Vetra UI, as pages in the file or as a library, including when a brief only says the product is built on Vetra. Pair with vetra-components and vetra-tokens for the design decisions.
+description: Builds and edits screens in Figma with the Vetra UI kit through the Figma MCP tools (use_figma, search_design_system, get_screenshot), placing kit instances, binding every value to the kit's variables and styles, setting mode and theme, swapping icons and auditing the result. Load it before any use_figma call on a file that uses Vetra UI, as pages or as a library.
 ---
 
 # Building with Vetra UI in Figma
@@ -27,12 +27,12 @@ was run against the kit.
    styles, padding, gap, radius and stroke weight to number variables. A raw value that matches a
    token renders right today and breaks on the next mode or theme switch.
 4. **Set light or dark, and the theme, once, on the top-level frame.** Everything inside inherits.
+   Why: a layer with its own mode stops following the frame, so switching the frame to dark leaves
+   that layer light.
 5. **End every pass with `get_screenshot` of the frame, the `audit` helper and the dark check**
    (Before you finish). Nothing is done while the audit returns issues.
-6. **Translucency comes from a token, never from opacity.** Never lower a paint's opacity or a
-   layer's opacity to make a color lighter or see-through: use a token that carries its own alpha
-   (`fill/*`, `stroke/*`, `overlay/scrim`). Why: binding or re-linking a variable resets the paint to
-   the token's alpha, and a faded layer composites differently on every surface. When no token fits,
+6. **Translucency comes from a token, never from opacity** (`vetra-tokens`, Glows, glass and
+   gradients, has the why): use `fill/*`, `stroke/*`, `overlay/scrim` or `glass/*`. When no token fits,
    stop and ask. If the person agrees to a new one, add it to the colors collection with a light and
    a dark value (alpha in the value), its scopes and the WEB code syntax `var(--name)`, then tell them
    to re-export `tokens.css`.
@@ -54,12 +54,10 @@ Does this file have the kit's pages (Components, Icons)?
       importStyleByKeyAsync(key), and variables through figma.teamLibrary (end of helpers.js).
 ```
 
-**Check the names before you build.** The skills describe Vetra UI 1.0; the team's file may differ.
-When `componentSet`, `icon` or `vars` can't find a name a skill gives, don't guess a spelling and
-don't draw the part yourself: search the file for the same role (names and descriptions), use it and
-say so, or stop and report the missing name. When a component has a property the inventory doesn't
-list, read the component's description and set it. Why: the helpers throw on a missing name, and a
-retry with an invented one either throws again or binds the wrong thing. If the team renamed the kit
+**Check the names before you build** (`vetra-ui`, When the file differs from the skills, decides what
+to use). In Figma: when `componentSet`, `icon` or `vars` throws on a name a skill gives, never retry
+with a guessed spelling. Why: a retry with an invented name either throws again or binds the wrong
+thing. If the team renamed the kit
 pages, the kit pages are the ones holding the component sets: treat them as Rule 1 does.
 
 Why filter by library: other kits the workspace subscribes to also have a "Button", and a search
@@ -160,10 +158,7 @@ Never assign `explicitVariableModes`: it is read-only, and its throw rolls back 
 
 ## Working with other agents
 
-A skill loads only when the agent reads it, and a context summary keeps the helper names and loses
-the rules.
-
-- After a context compaction, read this skill, `vetra-components`' Compose table and `vetra-tokens`'
+- After a context compaction (`vetra-ui`, rule 5), read this skill, `vetra-components`' Compose table and `vetra-tokens`'
   trees again before the next write to the file.
 - A brief for another agent that will write to the file names the skills, not just the kit:
 

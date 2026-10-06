@@ -1,6 +1,6 @@
 ---
 name: vetra-ai-ui
-description: Builds chat, assistant and agent interfaces with Vetra UI's AI components (Message Bubble, Composer, Reasoning, Chat Tool Call, Agent Step, Multistepper, Confirmation, Questionnaire, Sources, Citation, Code Block, Suggestion and the rest). Picks the component for each thing an assistant or agent shows, sets its properties for the moment in the run, composes turns, transcripts, side panels and the composer dock the way the kit's AI screens do, and writes their copy. Use whenever you design, build, edit or review a screen with an AI chat, an assistant panel, an agent run, tool calls, approvals, citations or streaming output, in Figma or in code. Use vetra-components for every other component and vetra-tokens for every value.
+description: Builds chat, assistant and agent interfaces with Vetra UI's 19 AI components (Message Bubble, Composer, Reasoning, Chat Tool Call, Agent Step, Confirmation, Sources and the rest), sets each one for the current moment of a run, and composes transcripts, panels and the composer dock. Use whenever you design, build or review an AI chat, an agent run, tool calls, approvals, citations or streaming output.
 ---
 
 # Vetra UI AI components
@@ -13,8 +13,8 @@ this skill alone. Why: the seven skills are one set, and a partial install drops
 Every property and default is in `references/inventory.md`. The general components (Button, Menu,
 Badge…) are `vetra-components`; colors, spacing and type are `vetra-tokens`.
 
-When a component or property here is missing from the team's file, or the file shows one this
-skill doesn't list, the file wins: use what it has and say so (`vetra-components`, rule 6).
+When the team's file differs from this skill, `vetra-ui` (When the file differs from the skills)
+decides.
 
 ## Rules that override everything below
 
@@ -23,17 +23,14 @@ skill doesn't list, the file wins: use what it has and say so (`vetra-components
    Questionnaire. Why: each part carries its own status glyph, live ink and receipt; a sentence
    saying "I ran the tests" carries none, and the reader can't tell running from done.
 2. **One moment at a time, and every part agrees with it.** A mock shows one moment; an app moves
-   through the phases in **Run phases** below, and at every instant every part matches the current
-   one: a Composer is `Sending` while anything streams or runs, a Confirmation is `Pending` only
-   while a step is `Waiting`, only the last reply streams. Why: a done answer under a running tool
-   call reads as a bug. A screen with both a tool call and a streaming reply shows the call Done
-   and collapsed, its result in the title, with one Working Agent Step for the writing; never a
-   Running call above a streaming reply. A finished answer followed by a Pending Confirmation is the
-   waiting moment: keep Message Actions on the reply above it and draw no follow-up Suggestions.
-   The kit's Agent Deploy frame is a composite of moments on one canvas: it shows a streaming reply
-   under a Pending Confirmation, no Waiting step and the Composer Default, to show every part at
-   once. Take its parts and spacing from it, never its states; where it disagrees with this rule,
-   the rule wins.
+   through the **Run phases** below, and at every instant every part matches the current phase.
+   Why: a done answer under a running tool call reads as a bug. Two moments agents get wrong:
+   - A tool call and a streaming reply: the call is Done and collapsed, its result in the title, and
+     one Working Agent Step covers the writing. Never a Running call above a streaming reply.
+   - A finished answer, then a Pending Confirmation: this is the waiting moment. Message Actions stay
+     on the reply, and no follow-up Suggestions are drawn.
+   The kit's Agent Deploy frame mixes moments to show every part at once: take its parts and
+   spacing, never its states.
 3. **Numbers agree across parts.** A Sources title "Used 3 sources" shows 3 favicons and 3 rows, a
    Chat Tool Call titled "2 tool calls" shows 2 rows, a Multistepper's Meta times add up to the
    run. Every Sources row is cited at least once, and no Citation number exceeds the row count.
@@ -193,9 +190,9 @@ none once the Composer has text.
 and Regenerate below a 360 column and let More carry them. `Versions` on only after a regenerate.
 
 **Exposed parts** (Reasoning's Trigger, Confirmation's Deny and Allow, the Composer's Model,
-Questionnaire's Choice A and Other and Next, a bubble's Metadata) are nested instances, found by name:
-`props(reasoning.findOne(n => n.name === 'Trigger'), { Label: 'Thought for 12s' })`. A variant
-value is a string (`Expanded: 'False'`); a boolean property is `true` or `false` (`Streaming: true`).
+Questionnaire's Choice A, Other and Next, a bubble's Metadata) are nested instances: set them with
+`part(inst, name)` from `vetra-figma`'s helpers. A variant value is a string (`Expanded: 'False'`);
+a boolean property is `true` or `false` (`Streaming: true`).
 
 **Sources and Citation.** Swap every favicon, the header's `↳ Favicon 1`–`3` and each row's
 `Favicon`, even for web pages: the default is the `globe`, which only says "a web page". Every
@@ -344,49 +341,10 @@ fills the transcript column, where the run asks it.
 
 ## In code
 
-- **Motion.** Blink the Streaming Caret at 1Hz, 50% duty. Shimmer the live Reasoning label and spin
-  the Working and Running loader glyphs. Blink by animating `background-color` (or `visibility`),
-  never `opacity`: `vetra-code` bans opacity on paints, and a faded token is a color the kit
-  doesn't have.
-  ```css
-  @keyframes caret-blink { 50% { background-color: transparent } }
-  .caret { background-color: var(--accent-default); animation: caret-blink 1s steps(1) infinite }
-  @media (prefers-reduced-motion: reduce) { .caret, .shimmer, .spin { animation: none } }
-  ```
-  Under `prefers-reduced-motion` the caret stays visible and solid (its file description says so;
-  a hidden caret loses where the text ends), the shimmer and the spinners stop, and the label paints
-  plain `accent/text`. Turn the shimmer's gradient off with its animation: a clipped-text shimmer
-  left without it paints the label transparent.
-- **Streaming text** flows inline, the caret right after the last word. Figma's one-line streaming
-  line is a Figma limit; don't reproduce it.
-- **Announce** through one visually hidden `role="status" aria-live="polite" aria-atomic="true"`
-  region on the screen, outside the transcript and outside every streaming text. Feed it a whole
-  message once each: a finished reply, an approval request ("Approval needed. Deploy checkout-api
-  2.14.1 to production"), a receipt ("Allowed. Deploy checkout-api…"). Queue them about 1s apart.
-  Why: a live region around the streaming text speaks every token, and two messages written in
-  one tick (a reply ends, a Confirmation appears) leave only the second. The streaming bubble sets
-  `aria-busy="true"` until it ends.
-- **Disclosures** (Reasoning, Chat Tool Call, Sources) are buttons with `aria-expanded`. A Citation is
-  a link with the source's name as its label, and its Citation Card opens on hover and on focus, 8
-  below it, with no arrow.
-- **Stop.** While Sending, the send button is Stop (`square`) with the label "Stop generating", and
-  it works: it settles every part as **Run phases** says and returns focus to the textarea.
-- **Confirmation focus.** Tab reaches Deny, then Allow; Enter or Space presses them. On Allow or
-  Deny, render the receipt with `tabindex="-1"` and call `focus()` on it, with the accessible name
-  "Allowed 10:58 AM, Deploy checkout-api 2.14.1 to production". The next Tab goes on to the
-  Composer. Why: the buttons unmount, focus falls to `<body>`, and a keyboard or screen-reader user
-  starts over from the top. A Deny sent by typing in the Composer leaves focus in the Composer.
-- **Composer keys.** Enter sends, Shift+Enter breaks the line, and Enter during IME composition
-  (`isComposing`) does neither. Enter sends nothing while Sending; Stop first. The textarea grows
-  with every line: the file sets no height cap and says the box does not scroll, so give it no
-  `max-height` and no inner scrollbar; the transcript above gives up the height.
-- **Keyboard hints.** A key shown in an AI part is the Kbd (`vetra-components`), one size per
-  surface: in code a `<kbd>` with the chord spelled out for screen readers ("Command Enter"). The
-  Questionnaire's choice key ships as a Badge (`Key`) in the file; leave it in Figma and render a
-  Tiny Kbd in code. Allow and Deny need no hint: Enter and Space on the focused button are enough.
-- **Questionnaire keys** are the component's letters, A, B, C, and real shortcuts: pressing the key
-  selects the choice.
-- The Active Tool chip is 28 tall; extend its hit area to the toolbar row's full height.
+Read `references/code.md` before writing an AI screen in code: the caret and shimmer motion and
+reduced motion, the one live region that announces replies and approvals, disclosures, Stop, focus
+after a Confirmation, and the Composer keys. Why here and not in Figma: none of it can be drawn, and
+every item is a defect a keyboard or screen-reader user hits first.
 
 ## Before you finish
 
@@ -405,7 +363,7 @@ Check the whole screen and fix every miss:
 - No placeholder copy: "3 tool calls", "Search the codebase", "Run npm test in /app",
   "Quarterly-report-Q3.pdf", "Summarize the deploy log" are the masters' defaults.
 - No middot anywhere.
-- In code: every phase in **Run phases** matches its row, Stop leaves no loader, caret or Done check
+- In code (`references/code.md`): every phase in **Run phases** matches its row, Stop leaves no loader, caret or Done check
   on a stopped group, focus lands on the receipt after Allow or Deny and in the Composer after Stop,
   one polite live region announces each finished reply, request and receipt once, and under
   reduced motion the caret is solid and nothing spins or shimmers.
@@ -413,5 +371,6 @@ Check the whole screen and fix every miss:
 ## References
 
 - `references/inventory.md`: every AI component's properties, defaults, sizes and nested parts
+- `references/code.md`: motion, announcements, focus and keys for AI screens in code
 - `vetra-components`: Button, Menu, Badge, Progress and the rest; the one-Primary rule
 - `vetra-tokens`: colors, spacing, type, shadows and focus rings

@@ -1,6 +1,6 @@
 ---
 name: vetra-ui
-description: Start here for any work with the Vetra UI kit, in Figma or in code. Routes the task to the Vetra skills it needs (vetra-tokens, vetra-components, vetra-ai-ui, vetra-copy, vetra-figma, vetra-code), sets the rules that override them, including the team's recorded changes to the kit, says what to do when the team's file differs from the skills, and how to review existing work. Use whenever a task builds, edits or reviews a screen, component or copy for a product that uses Vetra UI, before the other Vetra skills.
+description: Start here for any work with the Vetra UI kit, in Figma or in code. Routes the task to the other Vetra skills and holds the rules that override them, including the team's recorded changes to the kit, what to do when their file differs from the skills, and how to review existing work. Use whenever a task builds, edits or reviews a screen, component or copy for a product built on Vetra UI.
 ---
 
 # Vetra UI: start here
@@ -27,8 +27,8 @@ in the installer, and an agent that guesses at a missing skill builds with confi
    When the person asks for something the skills advise against (two blue buttons, Title Case),
    build exactly what they asked. The skills show the kit's way: offer it once, in one sentence in
    total however many rules the request breaks, and never refuse or argue. Never reword text the
-   person wrote (a title, a name, a label): it is theirs, even where a copy rule disagrees. Why: the designer or developer owns the product; the
-   skills are guidance, not gates.
+   person wrote (a title, a name, a label): it is theirs, even where a copy rule disagrees. Why: the
+   designer or developer owns the product; the skills are guidance, not gates.
 3. **Finish with the checklists.** Every skill ends with "Before you finish". Walk the list of each
    skill you read, fix every miss, then report.
 4. **The project's recorded changes come before the skills.** Before applying any skill, read the

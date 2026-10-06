@@ -1,6 +1,6 @@
 ---
 name: vetra-copy
-description: Writes the words inside a Vetra UI interface, including button and link labels, dialog titles and their action pairs, field labels, placeholders and hints, error messages, empty states, alerts, badges, tooltips, menu items, numbers, dates and sample data, the way the kit's own screens write them. Use whenever you put text into a screen built with Vetra UI, in Figma or in code, including filling a mock with sample content, and when reviewing a screen's copy. Pair with vetra-components for which component carries the text and vetra-ai-ui for assistant and agent copy.
+description: Writes the words in a Vetra UI interface the way the kit's screens do, from button labels and their action pairs to dialog titles, field hints and errors, empty states, badges, menus, numbers, dates and sample data. Use whenever you put text into a screen built with Vetra UI, in Figma or in code, fill a mock with sample content, or review a screen's copy.
 ---
 
 # Vetra UI copy
@@ -32,11 +32,8 @@ in another language reads "Other languages" first.
    a count on a badge matches the list under it, a date in the past is in the past. Why: one wrong
    sum makes every other number on the screen untrustworthy, and reviewers check.
 5. **No placeholder ships.** "Label", "Button", "Input text", "Hint text", "Lorem ipsum" and the
-   kit's own sample defaults are placeholders. Replace every one.
-
-A person's request wins ("use Title Case"): write what they asked. Suggest the kit's way once, in one
-sentence in total, and never refuse. Text the person wrote themselves (a title, a name) is theirs:
-never reword it to fit these rules.
+   kit's own sample defaults are placeholders. Replace every one. Why: a placeholder looks like
+   content, so it passes review and ships.
 
 ## Other languages
 
