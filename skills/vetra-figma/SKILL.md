@@ -6,7 +6,9 @@ description: Builds and edits screens in Figma with the Vetra UI kit through the
 # Building with Vetra UI in Figma
 
 Read the `vetra-ui` skill first (`../vetra-ui/SKILL.md`): it routes the task and holds the rules
-that override this one, including the team's recorded changes to the kit.
+that override this one, including the team's recorded changes to the kit. If it isn't installed,
+tell the person to run `npx skills add rshokhnur/vetra-ui-skills --skill '*'` and continue with
+this skill alone. Why: the seven skills are one set, and a partial install drops the routing.
 
 `vetra-components` decides which component, `vetra-tokens` which token; this skill puts them on
 the canvas. Paste `references/helpers.js` at the top of every `use_figma` script (the Audit block at

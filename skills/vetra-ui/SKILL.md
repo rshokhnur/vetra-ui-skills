@@ -10,6 +10,11 @@ written for **Vetra UI 1.0**: vetra-tokens, vetra-components, vetra-ai-ui, vetra
 and vetra-code. They are installed next to this one. Read the ones the task needs before you write
 anything; paths below are relative to this skill's folder.
 
+If a skill the tree below names isn't installed (its `SKILL.md` is missing), say which one once
+and tell the person to run `npx skills add rshokhnur/vetra-ui-skills --skill '*'`. Then continue
+with the skills you have; never guess the missing skill's rules. Why: buyers can tick a subset
+in the installer, and an agent that guesses at a missing skill builds with confidence and no rules.
+
 ## Rules that override everything below
 
 1. **Read first, then build.** Open every skill the tree below names for your task, and the

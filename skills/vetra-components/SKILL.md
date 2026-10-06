@@ -6,7 +6,9 @@ description: Chooses the right Vetra UI component and its properties (style, ton
 # Vetra UI components
 
 Read the `vetra-ui` skill first (`../vetra-ui/SKILL.md`): it routes the task and holds the rules
-that override this one, including the team's recorded changes to the kit.
+that override this one, including the team's recorded changes to the kit. If it isn't installed,
+tell the person to run `npx skills add rshokhnur/vetra-ui-skills --skill '*'` and continue with
+this skill alone. Why: the seven skills are one set, and a partial install drops the routing.
 
 Every component's property, default and nested part is in
 `references/inventory.md`; colors, spacing and type come from `vetra-tokens`.

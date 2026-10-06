@@ -8,13 +8,13 @@ They work with Claude Code, Codex, Cursor and the other agents the `skills` inst
 
 | Skill | What it does |
 | --- | --- |
-| `vetra-ui` | Start here: routes a task to the skills it needs, and holds the rules that override them, including your team's changes to the kit |
-| `vetra-tokens` | Picks the token for every color, surface, border, text style, spacing, radius, shadow and focus ring. Ships the tokens as `tokens.css`, light and dark, Neutral, Cool and Warm |
-| `vetra-components` | Picks the component for each need, sets its style, tone, size and state, and composes menus, dialogs, forms, tables and cards |
-| `vetra-ai-ui` | Builds chat, assistant and agent screens with the kit's 19 AI components: messages, reasoning, tool calls, approvals, citations, streaming |
-| `vetra-copy` | Writes the words: buttons, dialogs, labels, errors, empty states, dates and sample data |
-| `vetra-figma` | Builds and edits screens in your Figma file through the Figma MCP server, bound to the kit's variables and styles |
-| `vetra-code` | Sets up the tokens in plain CSS, Tailwind CSS v4 or v3, or shadcn/ui, and turns a Vetra Figma frame into your own components |
+| [`vetra-ui`](skills/vetra-ui/SKILL.md) | Start here: routes a task to the skills it needs, and holds the rules that override them, including your team's changes to the kit |
+| [`vetra-tokens`](skills/vetra-tokens/SKILL.md) | Picks the token for every color, surface, border, text style, spacing, radius, shadow and focus ring. Ships the tokens as `tokens.css`, light and dark, Neutral, Cool and Warm |
+| [`vetra-components`](skills/vetra-components/SKILL.md) | Picks the component for each need, sets its style, tone, size and state, and composes menus, dialogs, forms, tables and cards |
+| [`vetra-ai-ui`](skills/vetra-ai-ui/SKILL.md) | Builds chat, assistant and agent screens with the kit's 19 AI components: messages, reasoning, tool calls, approvals, citations, streaming |
+| [`vetra-copy`](skills/vetra-copy/SKILL.md) | Writes the words: buttons, dialogs, labels, errors, empty states, dates and sample data |
+| [`vetra-figma`](skills/vetra-figma/SKILL.md) | Builds and edits screens in your Figma file through the Figma MCP server, bound to the kit's variables and styles |
+| [`vetra-code`](skills/vetra-code/SKILL.md) | Sets up the tokens in plain CSS, Tailwind CSS v4 or v3, or shadcn/ui, and turns a Vetra Figma frame into your own components |
 
 ## Install
 
@@ -24,8 +24,10 @@ In your project folder:
 npx skills add rshokhnur/vetra-ui-skills
 ```
 
-Pick your agent when it asks (Claude Code, Codex, Cursor and others), or pass `--agent` and `--skill '*'`
-to skip the questions. Add `-g` to install for every project. Node 18 or later; no account and no key.
+Install all seven: they work as a set, and `vetra-ui` routes every task to the others. When the
+installer asks which skills to add, select all, or pass `--skill '*'`. Pick your agent when it asks
+(Claude Code, Codex, Cursor and others), or pass `--agent`. Add `-g` to install for every project.
+Node 18 or later; no account and no key.
 
 ## Your changes to the kit
 
@@ -74,3 +76,8 @@ cut one, or update each worktree's copy too.
 
 When your team changes variables in Figma, export `tokens.css` again (`vetra-code`, Set up once).
 A variable added after the export is missing from your CSS.
+
+## License
+
+For Vetra UI customers. See [LICENSE.md](LICENSE.md): use them in your own projects, never
+resell or redistribute them.

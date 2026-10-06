@@ -6,7 +6,9 @@ description: Picks the right Vetra UI token for every color, surface, border, wa
 # Vetra UI tokens
 
 Read the `vetra-ui` skill first (`../vetra-ui/SKILL.md`): it routes the task and holds the rules
-that override this one, including the team's recorded changes to the kit.
+that override this one, including the team's recorded changes to the kit. If it isn't installed,
+tell the person to run `npx skills add rshokhnur/vetra-ui-skills --skill '*'` and continue with
+this skill alone. Why: the seven skills are one set, and a partial install drops the routing.
 
 Every color, gap, radius, text style and shadow in a Vetra UI screen comes from a token.
 

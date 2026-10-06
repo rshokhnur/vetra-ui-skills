@@ -6,7 +6,9 @@ description: Implements Vetra UI designs in front-end code. Sets up the tokens f
 # Vetra UI in code
 
 Read the `vetra-ui` skill first (`../vetra-ui/SKILL.md`): it routes the task and holds the rules
-that override this one, including the team's recorded changes to the kit.
+that override this one, including the team's recorded changes to the kit. If it isn't installed,
+tell the person to run `npx skills add rshokhnur/vetra-ui-skills --skill '*'` and continue with
+this skill alone. Why: the seven skills are one set, and a partial install drops the routing.
 
 `vetra-tokens` decides which token, `vetra-components` which component. This skill turns those
 decisions into code in whatever stack the project uses.

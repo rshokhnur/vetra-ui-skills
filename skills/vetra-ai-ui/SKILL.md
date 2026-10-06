@@ -6,7 +6,9 @@ description: Builds chat, assistant and agent interfaces with Vetra UI's AI comp
 # Vetra UI AI components
 
 Read the `vetra-ui` skill first (`../vetra-ui/SKILL.md`): it routes the task and holds the rules
-that override this one, including the team's recorded changes to the kit.
+that override this one, including the team's recorded changes to the kit. If it isn't installed,
+tell the person to run `npx skills add rshokhnur/vetra-ui-skills --skill '*'` and continue with
+this skill alone. Why: the seven skills are one set, and a partial install drops the routing.
 
 Every property and default is in `references/inventory.md`. The general components (Button, Menu,
 Badge…) are `vetra-components`; colors, spacing and type are `vetra-tokens`.
