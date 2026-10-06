@@ -5,6 +5,9 @@ description: Writes the words inside a Vetra UI interface, including button and 
 
 # Vetra UI copy
 
+Read the `vetra-ui` skill first (`../vetra-ui/SKILL.md`): it routes the task and holds the rules
+that override this one, including the team's recorded changes to the kit.
+
 The kit's screens follow one voice: short, specific, sentence case, the action named on anything
 you press. Chat and agent copy (tool calls, confirmations, reasoning) is in `vetra-ai-ui`. A product
 in another language reads "Other languages" first.

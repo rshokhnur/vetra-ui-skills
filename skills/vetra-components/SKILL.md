@@ -5,6 +5,9 @@ description: Chooses the right Vetra UI component and its properties (style, ton
 
 # Vetra UI components
 
+Read the `vetra-ui` skill first (`../vetra-ui/SKILL.md`): it routes the task and holds the rules
+that override this one, including the team's recorded changes to the kit.
+
 Every component's property, default and nested part is in
 `references/inventory.md`; colors, spacing and type come from `vetra-tokens`.
 

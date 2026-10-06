@@ -5,6 +5,9 @@ description: Implements Vetra UI designs in front-end code. Sets up the tokens f
 
 # Vetra UI in code
 
+Read the `vetra-ui` skill first (`../vetra-ui/SKILL.md`): it routes the task and holds the rules
+that override this one, including the team's recorded changes to the kit.
+
 `vetra-tokens` decides which token, `vetra-components` which component. This skill turns those
 decisions into code in whatever stack the project uses.
 

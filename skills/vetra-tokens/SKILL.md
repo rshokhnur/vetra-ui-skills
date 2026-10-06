@@ -5,6 +5,9 @@ description: Picks the right Vetra UI token for every color, surface, border, wa
 
 # Vetra UI tokens
 
+Read the `vetra-ui` skill first (`../vetra-ui/SKILL.md`): it routes the task and holds the rules
+that override this one, including the team's recorded changes to the kit.
+
 Every color, gap, radius, text style and shadow in a Vetra UI screen comes from a token.
 
 ## Rules that override everything below

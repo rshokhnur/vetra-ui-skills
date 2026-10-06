@@ -1,13 +1,14 @@
 # Vetra UI skills for AI agents
 
-Six skills that teach an AI agent to build with Vetra UI 1.0 the way the kit is designed: the right
+Seven skills that teach an AI agent to build with Vetra UI 1.0 the way the kit is designed: the right
 token, the right component and its properties, the kit's layouts and its copy, in Figma and in code.
-They work with Claude Code, Cursor, Codex and any agent that reads an `AGENTS.md` file.
+They work with Claude Code, Codex, Cursor and the other agents the `skills` installer supports.
 
 ## What's inside
 
 | Skill | What it does |
 | --- | --- |
+| `vetra-ui` | Start here: routes a task to the skills it needs, and holds the rules that override them, including your team's changes to the kit |
 | `vetra-tokens` | Picks the token for every color, surface, border, text style, spacing, radius, shadow and focus ring. Ships the tokens as `tokens.css`, light and dark, Neutral, Cool and Warm |
 | `vetra-components` | Picks the component for each need, sets its style, tone, size and state, and composes menus, dialogs, forms, tables and cards |
 | `vetra-ai-ui` | Builds chat, assistant and agent screens with the kit's 19 AI components: messages, reasoning, tool calls, approvals, citations, streaming |
@@ -15,37 +16,24 @@ They work with Claude Code, Cursor, Codex and any agent that reads an `AGENTS.md
 | `vetra-figma` | Builds and edits screens in your Figma file through the Figma MCP server, bound to the kit's variables and styles |
 | `vetra-code` | Sets up the tokens in plain CSS, Tailwind CSS v4 or v3, or shadcn/ui, and turns a Vetra Figma frame into your own components |
 
-`AGENTS.md` routes a task to the skills it needs.
-
 ## Install
 
 In your project folder:
 
 ```bash
-npx github:rshokhnur/vetra-ui-skills install
+npx skills add rshokhnur/vetra-ui-skills
 ```
 
-It puts the skills where your agent reads them (below). Node 18 or later; no account and no key.
-Run the same command again to update.
-
-**Claude Code.** In a project with a `.claude/` folder the installer writes the six `vetra-*` folders
-to `.claude/skills/` (`--global` for `~/.claude/skills/`, every project; `--agent claude` forces it). Claude loads each skill when a task matches it; you
-don't need `AGENTS.md`.
-
-**Cursor, Codex and other agents.** Elsewhere it writes this whole folder to `vetra-ui/` and adds
-this line to the `AGENTS.md` at your project's root (`--agent both` does both):
-
-```md
-Before any UI work, read vetra-ui/AGENTS.md and follow it.
-```
+Pick your agent when it asks (Claude Code, Codex, Cursor and others), or pass `--agent` and `--skill '*'`
+to skip the questions. Add `-g` to install for every project. Node 18 or later; no account and no key.
 
 ## Your changes to the kit
 
 Most teams change their copy of Vetra UI: a rebrand, a renamed color, their own components, a rule
 they chose differently. Write each change as one line under `## Changes to Vetra UI` in your
-project's `AGENTS.md` (the installer creates the section, and imports it into `CLAUDE.md` for Claude
-Code). Agents read it before the skills and treat it as your decision, and an update never
-touches it.
+project's `AGENTS.md` (or `CLAUDE.md` for Claude Code). Agents read it before the skills and treat
+it as your decision, and an update never touches it. The agent adds the section itself the first
+time you record a change.
 
 ```md
 ## Changes to Vetra UI
@@ -78,8 +66,8 @@ the Vetra skills" whenever you want a second pass.
 
 ## Updating
 
-When a new version of Vetra UI ships, or these skills get a fix, run
-`npx github:rshokhnur/vetra-ui-skills install` again. The skills name tokens and components, never node IDs, so they work in any file built on the kit.
+When a new version of Vetra UI ships, or these skills get a fix, run `npx skills update`. The skills
+name tokens and components, never node IDs, so they work in any file built on the kit.
 A git worktree keeps the copy that was committed when it was made: commit the new folders before you
 cut one, or update each worktree's copy too.
 

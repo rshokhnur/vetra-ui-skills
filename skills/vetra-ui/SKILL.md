@@ -1,8 +1,14 @@
-# Vetra UI: agent instructions
+---
+name: vetra-ui
+description: Start here for any work with the Vetra UI kit, in Figma or in code. Routes the task to the Vetra skills it needs (vetra-tokens, vetra-components, vetra-ai-ui, vetra-copy, vetra-figma, vetra-code), sets the rules that override them, including the team's recorded changes to the kit, says what to do when the team's file differs from the skills, and how to review existing work. Use whenever a task builds, edits or reviews a screen, component or copy for a product that uses Vetra UI, before the other Vetra skills.
+---
 
-This project builds its interface with the Vetra UI kit. Six skills in this folder hold the kit's
-rules, written for **Vetra UI 1.0**. Read the ones the task needs before you write anything;
-paths below are relative to this file.
+# Vetra UI: start here
+
+This project builds its interface with the Vetra UI kit. Six more skills hold the kit's rules,
+written for **Vetra UI 1.0**: vetra-tokens, vetra-components, vetra-ai-ui, vetra-copy, vetra-figma
+and vetra-code. They are installed next to this one. Read the ones the task needs before you write
+anything; paths below are relative to this skill's folder.
 
 ## Rules that override everything below
 
@@ -26,7 +32,9 @@ paths below are relative to this file.
    "fix" it back. When the team renames, adds or removes a token or component, or decides against a
    skill on purpose (a solid selected row, Medium controls on sign-in), add one line there, in the
    team's words. Why: the skills describe the stock kit and are replaced on every update; that
-   section is the only place a team's choices survive and reach the next agent.
+   section is the only place a team's choices survive and reach the next agent. If the project has
+   no such section yet, create it at the end of its `AGENTS.md` (or `CLAUDE.md` for Claude Code) the
+   first time the team records a change.
 5. **Read again after a compaction, and name the skills in every brief.** A context summary keeps
    helper names and loses the rules, and an agent whose brief only says "built on Vetra" loads
    nothing. Re-read the skills before the next write; a brief for another agent names each skill it
@@ -55,8 +63,8 @@ The file names a Vetra UI version other than 1.0 (its Changelog page)
 
 Why: the names and hex values in these skills are a snapshot. A name that isn't in the file throws
 in Figma and resolves to nothing in CSS, with no error, and a copied hex undoes the team's rebrand.
-In code, `vetra-tokens/assets/tokens.css` is the stock kit: if the team changed variables, export
-theirs with `vetra-figma/references/export-tokens.js` (see `vetra-code`).
+In code, `../vetra-tokens/assets/tokens.css` is the stock kit: if the team changed variables, export
+theirs with `../vetra-figma/references/export-tokens.js` (see `vetra-code`).
 
 ## Pick the skills
 
@@ -64,22 +72,22 @@ Take every branch that matches; most tasks match more than one.
 
 ```
 Styling anything: a color, a surface, a border, spacing, type, a shadow, a focus ring
-└── vetra-tokens/SKILL.md
+└── ../vetra-tokens/SKILL.md
 
 Choosing or composing controls: buttons, fields, menus, dialogs, tables, cards, forms
-└── vetra-components/SKILL.md
+└── ../vetra-components/SKILL.md
 
 A chat, an assistant, an agent run, tool calls, approvals, citations, streaming output
-└── vetra-ai-ui/SKILL.md, with vetra-components/SKILL.md
+└── ../vetra-ai-ui/SKILL.md, with ../vetra-components/SKILL.md
 
 Any words on screen: labels, buttons, errors, empty states, dates, sample data
-└── vetra-copy/SKILL.md; for chat and agent parts, the Copy section of vetra-ai-ui/SKILL.md
+└── ../vetra-copy/SKILL.md; for chat and agent parts, the Copy section of ../vetra-ai-ui/SKILL.md
 
 Writing to a Figma file through the Figma MCP (use_figma), even for one small change
-└── vetra-figma/SKILL.md, with vetra-tokens and vetra-components
+└── ../vetra-figma/SKILL.md, with vetra-tokens and vetra-components
 
 Writing front-end code: setting up the tokens, implementing a Figma frame, building a component
-└── vetra-code/SKILL.md, with vetra-tokens and vetra-components
+└── ../vetra-code/SKILL.md, with vetra-tokens and vetra-components
 
 Reviewing or auditing existing work: a Figma screen, a page of code, a pull request
 └── "Reviewing existing work" below, with the skills its subject needs
@@ -117,13 +125,13 @@ team's, and how bad each miss is. Walk these steps in order.
 
 | You need | Open |
 | --- | --- |
-| A token's value, contrast or mode | `vetra-tokens/references/colors.md`, `scales.md`, `typography.md`, `effects.md` |
-| The tokens as CSS | `vetra-tokens/assets/tokens.css` |
-| A component's properties and defaults | `vetra-components/references/inventory.md` |
-| An AI component's properties and defaults | `vetra-ai-ui/references/inventory.md` |
-| Tailwind v4 and shadcn/ui wiring | `vetra-code/assets/`, `vetra-code/references/shadcn.md` |
-| A Button to copy, and the `cn()` for shadcn | `vetra-code/references/button.tsx`, `utils.ts` |
-| Figma helpers and known traps | `vetra-figma/references/helpers.js`, `traps.md` |
+| A token's value, contrast or mode | `../vetra-tokens/references/colors.md`, `scales.md`, `typography.md`, `effects.md` |
+| The tokens as CSS | `../vetra-tokens/assets/tokens.css` |
+| A component's properties and defaults | `../vetra-components/references/inventory.md` |
+| An AI component's properties and defaults | `../vetra-ai-ui/references/inventory.md` |
+| Tailwind v4 and shadcn/ui wiring | `../vetra-code/assets/`, `../vetra-code/references/shadcn.md` |
+| A Button to copy, and the `cn()` for shadcn | `../vetra-code/references/button.tsx`, `utils.ts` |
+| Figma helpers and known traps | `../vetra-figma/references/helpers.js`, `traps.md` |
 
 Never guess a token name, a property name or a default. Look it up here; if it isn't listed, it
 doesn't exist in the kit.

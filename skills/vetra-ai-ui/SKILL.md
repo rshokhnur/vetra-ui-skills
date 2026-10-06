@@ -5,6 +5,9 @@ description: Builds chat, assistant and agent interfaces with Vetra UI's AI comp
 
 # Vetra UI AI components
 
+Read the `vetra-ui` skill first (`../vetra-ui/SKILL.md`): it routes the task and holds the rules
+that override this one, including the team's recorded changes to the kit.
+
 Every property and default is in `references/inventory.md`. The general components (Button, Menu,
 Badge…) are `vetra-components`; colors, spacing and type are `vetra-tokens`.
 

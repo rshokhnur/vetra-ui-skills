@@ -5,6 +5,9 @@ description: Builds and edits screens in Figma with the Vetra UI kit through the
 
 # Building with Vetra UI in Figma
 
+Read the `vetra-ui` skill first (`../vetra-ui/SKILL.md`): it routes the task and holds the rules
+that override this one, including the team's recorded changes to the kit.
+
 `vetra-components` decides which component, `vetra-tokens` which token; this skill puts them on
 the canvas. Paste `references/helpers.js` at the top of every `use_figma` script (the Audit block at
 its end only in the script that finishes a pass): every helper named below is in it, and each one
